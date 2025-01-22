@@ -19,6 +19,10 @@
     <p class="text-center text-white">Sample texts with different fonts from your collection.</p>
 
     <div>
+        <a href="./"></a>
+    </div>
+
+    <div>
         <input type="text" id="search" style="background: none; color: #fff;">
     </div>
 
@@ -54,12 +58,19 @@
                 // Dynamically generate the @font-face CSS rules
                 let fontStyles = '';
                 data.fonts.forEach(function(font) {
-                    fontStyles += `
-                    @font-face {
-                        font-family: '${font.name}';
-                        src: url('fonts/${font.url}') format('woff2');
+                    if (font.external === false) {
+                        fontStyles += `
+                        @font-face {
+                            font-family: '${font.name}';
+                            src: url('fonts/${font.url}') format('woff2');
+                        }`;
+                    } else {
+                        fontStyles += `
+                        @font-face {
+                            font-family: '${font.name}';
+                            src: url('${font.url}') format('woff2');
+                        }`;
                     }
-                    `;
                 });
 
                 // Inject the dynamically generated CSS into the page
@@ -67,14 +78,15 @@
 
                 // Iterate through the fonts and create HTML for each
                 data.fonts.forEach(function(font) {
-                    let fontCard = `
-                    <div class="col-md-4 font-div">
-                        <div class="font-card">
-                            <div class="font-title">${font.name}</div>
-                            <div class="font-sample" style="font-family: '${font.name}', sans-serif;">
-                                Sample Text: The quick brown fox jumps over the lazy dog.
-                            </div>
-                            <div class="cssCode${font.name}" style="font-size: 12px; margin-top: 20px;">
+                    if (font.external === false) {
+                        let fontCard = `
+                        <div class="col-md-4 font-div">
+                            <div class="font-card">
+                                <div class="font-title">${font.name}</div>
+                                <div class="font-sample" style="font-family: '${font.name}', sans-serif;">
+                                    Sample Text: The quick brown fox jumps over the lazy dog.
+                                </div>
+                                <div class="cssCode${font.name}" style="font-size: 12px; margin-top: 20px;">
 <pre><span style="color: rgba(0, 255, 255, 1)">@font-face</span> {
     <span style="color: rgb(0, 255, 21)">font-family:</span> '${font.name}';
     <span style="color: rgb(0, 255, 21)">src:</span> url('${fontsUrl}/fonts/${font.url}') format('woff2');
@@ -84,16 +96,45 @@
     <span style="color: rgb(0, 255, 21)">font-family:</span> '${font.name}' !important;
 }
 </pre>
-                            </div>
+                                </div>
 
-                            <div>
-                                <button class="btn btn-info copy-button-${font.name}" style="font-size: 12px;">Copy CSS</button>    
-                                <a href="${fontsUrl}/fonts/${font.url}"><button class="btn btn-success" style="font-size: 12px;">Download</button></a>
+                                <div>
+                                    <button class="btn btn-info copy-button-${font.name}" style="font-size: 12px;">Copy CSS</button>    
+                                    <a href="${fontsUrl}/fonts/${font.url}"><button class="btn btn-success" style="font-size: 12px;">Download</button></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    `;
-                    $('#font-list').append(fontCard);
+                        `;
+                        $('#font-list').append(fontCard);
+                    } else {
+                        let fontCard = `
+                        <div class="col-md-4 font-div">
+                            <div class="font-card">
+                                <div class="font-title">${font.name}</div>
+                                <div class="font-sample" style="font-family: '${font.name}', sans-serif;">
+                                    Sample Text: The quick brown fox jumps over the lazy dog.
+                                </div>
+                                <div class="cssCode${font.name}" style="font-size: 12px; margin-top: 20px;">
+<pre><span style="color: rgba(0, 255, 255, 1)">@font-face</span> {
+    <span style="color: rgb(0, 255, 21)">font-family:</span> '${font.name}';
+    <span style="color: rgb(0, 255, 21)">src:</span> url('${font.url}') format('woff2');
+}
+
+<span style="color: rgba(0, 255, 255, 1)">.${font.name}</span> {
+    <span style="color: rgb(0, 255, 21)">font-family:</span> '${font.name}' !important;
+}
+</pre>
+                                </div>
+
+                                <div>
+                                    <button class="btn btn-info copy-button-${font.name}" style="font-size: 12px;">Copy CSS</button>    
+                                    <a href="${font.url}"><button class="btn btn-success" style="font-size: 12px;">Download</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                        $('#font-list').append(fontCard);
+                    }
 
                     // copy
 
