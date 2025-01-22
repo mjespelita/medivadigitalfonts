@@ -1,0 +1,45 @@
+{
+    "fonts": [
+        {
+            "name": "adelia",
+            "url": "adelia.woff2"
+        },
+        {
+            "name": "elegant_demo",
+            "url": "elegant_demo.woff2"
+        },
+        { 
+            "name": "helvetica",
+            "url": "helvetica.woff2"
+        },
+        { 
+            "name": "grading_royal_demo",
+            "url": "grading_royal_demo.woff2"
+        },
+        { 
+            "name": "grading_royal_regular",
+            "url": "grading_royal_regular.woff2"
+        },
+        { 
+            "name": "helvetica_neue_regular",
+            "url": "helvetica_neue_regular.woff2"
+        },
+        { 
+            "name": "helvetica_neue_thin",
+            "url": "helvetica_neue_thin.woff2"
+        },
+        
+        { 
+            "name": "nicky_laatz_very_vogue_text",
+            "url": "nicky_laatz_very_vogue_text.woff2"
+        },
+        { 
+            "name": "renatha_signature",
+            "url": "renatha_signature.woff2"
+        },
+        { 
+            "name": "serathine_demo",
+            "url": "serathine_demo.woff2"
+        }
+    ]
+}

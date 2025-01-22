@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Compilation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary neon-text">Mediva Digital Font Compilation</h1>
+    <p class="text-center text-white">Sample texts with different fonts from your collection.</p>
+
+    <div>
+        <input type="text" id="search" style="background: none; color: #fff;">
+    </div>
+
+    <div class="row" id="font-list">
+        <!-- Font Cards will be dynamically inserted here -->
+    </div>
+
+</div>
+
+<!-- jQuery and Bootstrap Bundle -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        let fontsUrl = 'https://medivadigitalfonts.netlify.app'
+
+        // search
+
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".font-div").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+
+        // Fetch the list of fonts via AJAX (assuming there's a JSON file with font details)
+        $.ajax({
+            url: 'fonts/fonts.json', // The path to your JSON file
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Dynamically generate the @font-face CSS rules
+                let fontStyles = '';
+                data.fonts.forEach(function(font) {
+                    fontStyles += `
+                    @font-face {
+                        font-family: '${font.name}';
+                        src: url('fonts/${font.url}') format('woff2');
+                    }
+                    `;
+                });
+
+                // Inject the dynamically generated CSS into the page
+                $('head').append(`<style>${fontStyles}</style>`);
+
+                // Iterate through the fonts and create HTML for each
+                data.fonts.forEach(function(font) {
+                    let fontCard = `
+                    <div class="col-md-4 font-div">
+                        <div class="font-card">
+                            <div class="font-title">${font.name}</div>
+                            <div class="font-sample" style="font-family: '${font.name}', sans-serif;">
+                                Sample Text: The quick brown fox jumps over the lazy dog.
+                            </div>
+                            <div class="cssCode${font.name}" style="font-size: 12px; margin-top: 20px;">
+<pre><span style="color: rgba(0, 255, 255, 1)">@font-face</span> {
+    <span style="color: rgb(0, 255, 21)">font-family:</span> '${font.name}';
+    <span style="color: rgb(0, 255, 21)">src:</span> url('${fontsUrl}/fonts/${font.url}') format('woff2');
+}
+
+<span style="color: rgba(0, 255, 255, 1)">.${font.name}</span> {
+    <span style="color: rgb(0, 255, 21)">font-family:</span> '${font.name}' !important;
+}
+</pre>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-info copy-button-${font.name}" style="font-size: 12px;">Copy CSS</button>    
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    $('#font-list').append(fontCard);
+
+                    // copy
+
+                    $('.copy-button-' + font.name).click(function () {
+                        var textToCopy = $('.cssCode' + font.name).text(); // Added parentheses to call the .text() method
+
+                        // Use the Clipboard API to copy the text to the clipboard
+                        navigator.clipboard.writeText(textToCopy).then(function() {
+                            alert('Text copied to clipboard!');
+                        }).catch(function(err) {
+                            alert('Failed to copy text: ' + err);
+                        });
+                    });
+                });
+            },
+            error: function() {
+                alert("Failed to load font data.");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
