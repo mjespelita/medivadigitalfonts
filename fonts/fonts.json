@@ -6,9 +6,9 @@
             "external": false
         },
         {
-            "name": "the_diplomat_signature",
-            "url": "https://dl.dafont.com/dl/?f=the_diplomat_signature",
-            "external": true
+            "name": "the_diplomat_signature_regular",
+            "url": "the_diplomat_signature_regular.woff2",
+            "external": false
         },
         {
             "name": "naishila_dancing_script",
