@@ -6,6 +6,11 @@
             "external": false
         },
         {
+            "name": "chewy_regular",
+            "url": "chewy_regular.woff2",
+            "external": false
+        },
+        {
             "name": "the_diplomat_signature_regular",
             "url": "the_diplomat_signature_regular.woff2",
             "external": false
