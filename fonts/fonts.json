@@ -1,49 +1,60 @@
 {
     "fonts": [
         {
-            "name": "porcelain",
-            "url": "porcelain.woff2"
+            "name": "adelia",
+            "url": "adelia.woff2",
+            "external": false
         },
         {
-            "name": "adelia",
-            "url": "adelia.woff2"
+            "name": "shantell_sans_irregular_light_italic",
+            "url": "https://db.onlinewebfonts.com/t/38da3b568784f4d160cf6d88c37ce4a3.woff2",
+            "external": true
         },
         {
             "name": "elegant_demo",
-            "url": "elegant_demo.woff2"
+            "url": "elegant_demo.woff2",
+            "external": false
         },
         { 
             "name": "helvetica",
-            "url": "helvetica.woff2"
+            "url": "helvetica.woff2",
+            "external": false
         },
         { 
             "name": "grading_royal_demo",
-            "url": "grading_royal_demo.woff2"
+            "url": "grading_royal_demo.woff2",
+            "external": false
         },
         { 
             "name": "grading_royal_regular",
-            "url": "grading_royal_regular.woff2"
+            "url": "grading_royal_regular.woff2",
+            "external": false
         },
         { 
             "name": "helvetica_neue_regular",
-            "url": "helvetica_neue_regular.woff2"
+            "url": "helvetica_neue_regular.woff2",
+            "external": false
         },
         { 
             "name": "helvetica_neue_thin",
-            "url": "helvetica_neue_thin.woff2"
+            "url": "helvetica_neue_thin.woff2",
+            "external": false
         },
         
         { 
             "name": "nicky_laatz_very_vogue_text",
-            "url": "nicky_laatz_very_vogue_text.woff2"
+            "url": "nicky_laatz_very_vogue_text.woff2",
+            "external": false
         },
         { 
             "name": "renatha_signature",
-            "url": "renatha_signature.woff2"
+            "url": "renatha_signature.woff2",
+            "external": false
         },
         { 
             "name": "serathine_demo",
-            "url": "serathine_demo.woff2"
+            "url": "serathine_demo.woff2",
+            "external": false
         }
     ]
 }
