@@ -21,41 +21,6 @@
             "external": true
         },
         {
-        "name": "bangers",
-        "url": "https://db.onlinewebfonts.com/t/1f6f5e6c115f573c29035e8ee56b0394.woff2",
-        "external": true
-    },
-    {
-        "name": "cookie",
-        "url": "https://db.onlinewebfonts.com/t/fb77b7e32e8a512d8ee27e8b92e24194.woff2",
-        "external": true
-    },
-    {
-        "name": "dancing_script",
-        "url": "https://db.onlinewebfonts.com/t/3b3034a98b072de2e2079fd7e3124a33.woff2",
-        "external": true
-    },
-    {
-        "name": "italianno",
-        "url": "https://db.onlinewebfonts.com/t/d2e7fa87fe5d8d30916c7b12c8c963db.woff2",
-        "external": true
-    },
-    {
-        "name": "michroma",
-        "url": "https://db.onlinewebfonts.com/t/5c4b62d233b9a6fe500602ce2b9b7b33.woff2",
-        "external": true
-    },
-    {
-        "name": "rockSalt",
-        "url": "https://db.onlinewebfonts.com/t/8e2b21ae4e5b2542d7b2b59578bb0419.woff2",
-        "external": true
-    },
-    {
-        "name": "tangerine",
-        "url": "https://db.onlinewebfonts.com/t/74d4f8ec2ac0fd82f38b0417ffeb7a78.woff2",
-        "external": true
-    },
-        {
             "name": "porcelain",
             "url": "porcelain.woff2",
             "external": false
