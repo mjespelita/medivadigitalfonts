@@ -6,6 +6,11 @@
             "external": false
         },
         {
+            "name": "naishila_dancing_script",
+            "url": "https://db.onlinewebfonts.com/t/323b6515acde47ac0dd2174fcc168979.woff2",
+            "external": true
+        },
+        {
             "name": "angeletta_w04_regular",
             "url": "https://db.onlinewebfonts.com/t/9190b99bc6c97006796d885cf0a226c4.woff2",
             "external": true
