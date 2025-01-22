@@ -6,6 +6,11 @@
             "external": false
         },
         {
+            "name": "angeletta_w04_regular",
+            "url": "https://db.onlinewebfonts.com/t/9190b99bc6c97006796d885cf0a226c4.woff2",
+            "external": true
+        },
+        {
             "name": "porcelain",
             "url": "porcelain.woff2",
             "external": false
