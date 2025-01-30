@@ -1,6 +1,11 @@
 {
     "fonts": [
         {
+            "name": "avenir",
+            "url": "https://db.onlinewebfonts.com/t/275de2221d9f0c4c9257d17f5a1e4006.woff2",
+            "external": true
+        },
+        {
             "name": "heavy_demo",
             "url": "heavy_demo.woff2",
             "external": false
