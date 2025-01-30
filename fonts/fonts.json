@@ -1,6 +1,11 @@
 {
     "fonts": [
         {
+            "name": "heavy_demo",
+            "url": "heavy_demo.woff2",
+            "external": false
+        },
+        {
             "name": "adelia",
             "url": "adelia.woff2",
             "external": false
